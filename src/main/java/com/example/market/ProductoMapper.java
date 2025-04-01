@@ -9,15 +9,15 @@ import org.mapstruct.Mappings;
 
 @Mapper(componentModel = "spring")
 public interface ProductoMapper {
-    ProductoDTO toProductoDTO(Producto producto);
+
 
     @Mappings({
             @Mapping(target = "id", source = "id"),
-            @Mapping(target = "nombre", source = "name"),
+            @Mapping(target = "name", source = "nombre"),
             @Mapping(target = "description", source = "descripcion"),
-            @Mapping(target = "precio", source = "price")
+            @Mapping(target = "price", source = "precio")
     })
-    
+    ProductoDTO toProductoDTO(Producto producto);
     List<ProductoDTO> toProductosDTO(List<Producto> productos);
     
     @InheritInverseConfiguration
